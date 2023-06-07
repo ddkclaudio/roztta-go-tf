@@ -1,0 +1,3 @@
+*.exe
+terraform-provider-roztta
+dist/
