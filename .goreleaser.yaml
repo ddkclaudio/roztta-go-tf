@@ -16,15 +16,9 @@ builds:
 
 archives:
   - format: tar.gz
-    # this name template makes the OS and Arch compatible with the results of uname.
-    name_template: >-
-      roztta-go-tf_{{ .Os }}_{{ .Arch }}.tar.gz
-    # use zip for windows archives
-    format_overrides:
-      - goos: windows
-        format: zip
-        name_template: >-
-          roztta-go-tf_{{ .Os }}_{{ if eq .Arch "amd64" }}x86_64{{ else if eq .Arch "386" }}i386{{ else if eq .Arch "arm64" }}arm64{{ end }}.zip
+    name_template: "roztta-go-tf_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}.tar.gz"
+  - format: zip
+    name_template: "roztta-go-tf_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}.zip"
 checksum:
   name_template: "checksums.txt"
 snapshot:
