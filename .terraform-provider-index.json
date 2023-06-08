@@ -1,0 +1,34 @@
+{
+  "providers": [
+    {
+      "namespace": "roztta",
+      "name": "roztta",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "protocols": ["5.0"]
+        }
+      ],
+      "downloads": [
+        {
+          "arch": "amd64",
+          "os": "linux",
+          "filename": "roztta-go-tf_linux_amd64.tar.gz",
+          "terraform_version_requirement": ">= 0.12"
+        },
+        {
+          "arch": "amd64",
+          "os": "windows",
+          "filename": "roztta-go-tf_windows_amd64.zip",
+          "terraform_version_requirement": ">= 0.12"
+        },
+        {
+          "arch": "amd64",
+          "os": "darwin",
+          "filename": "roztta-go-tf_darwin_amd64.tar.gz",
+          "terraform_version_requirement": ">= 0.12"
+        }
+      ]
+    }
+  ]
+}
