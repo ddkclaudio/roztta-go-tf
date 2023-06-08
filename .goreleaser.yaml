@@ -13,7 +13,7 @@ builds:
 
 archives:
   - format: zip
-    name_template: "terraform-provider-roztta-go_v{{ .Version }}_{{ .Os }}_{{ .Arch }}.zip"
+    name_template: "terraform-provider-roztta-go_v{{ .Version }}_{{ .Os }}_{{ .Arch }}"
 
 checksum:
   name_template: "terraform-provider-roztta-go_{{ .Version }}_SHA256SUMS"
