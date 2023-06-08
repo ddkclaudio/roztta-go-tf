@@ -1,3 +1,4 @@
 *.exe
-terraform-provider-roztta
+terraform-provider-*
 dist/
+[Bb]uild/
