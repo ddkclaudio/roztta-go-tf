@@ -1,11 +1,8 @@
-# Este é um arquivo .goreleaser.yml de exemplo com alguns padrões sensíveis.
-# Não se esqueça de verificar a documentação em https://goreleaser.com
 before:
   hooks:
-    # Você pode remover isso se não usa go modules.
     - go mod tidy
-    # Você pode remover isso se não precisa de go generate
     - go generate ./...
+
 builds:
   - env:
       - CGO_ENABLED=0
@@ -13,21 +10,18 @@ builds:
       - linux
       - windows
       - darwin
-    goarch:
-      - amd64
-      - arm64
-      - "386"
+
 archives:
-  - format: tar.gz
-    name_template: >-
-      roztta-go-tf_{{ .Os }}_{{ .Arch }}_{{ .Version }}
-    format_overrides:
-      - goos: windows
-        format: zip
+  - format: zip
+    name_template: "terraform-provider-roztta-go_v{{ .Version }}_{{ .Os }}_{{ .Arch }}.zip"
+
 checksum:
-  name_template: "checksums.txt"
+  name_template: "terraform-provider-roztta-go_{{ .Version }}_SHA256SUMS"
+  algorithm: sha256
+
 snapshot:
   name_template: "{{ incpatch .Version }}-next"
+
 changelog:
   sort: asc
   filters:
