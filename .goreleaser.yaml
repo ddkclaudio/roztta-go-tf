@@ -18,7 +18,7 @@ archives:
   - format: tar.gz
     # this name template makes the OS and Arch compatible with the results of uname.
     name_template: >-
-      terraform-provider-roztta_{{ .Os }}_{{ .Arch }}
+      roztta-go-tf_{{ .Os }}_{{ .Arch }}
     # use zip for windows archives
     format_overrides:
       - goos: windows
