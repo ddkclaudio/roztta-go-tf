@@ -14,32 +14,19 @@ builds:
       - windows
       - darwin
 
-# Configuração dos arquivos a serem arquivados
 archives:
-  # Arquivo para Darwin (macOS)
-  - id: darwin
-    format: zip
-    name_template: "{{ .ProjectName }}_{{ .Version }}_Darwin_{{ .Arch }}"
-
-  # Arquivo para Linux
-  - id: linux
-    format: zip
-    name_template: "{{ .ProjectName }}_{{ .Version }}_Linux_{{ .Arch }}"
-
-  # Arquivo para Windows
-  - id: windows
-    format: zip
-    name_template: "{{ .ProjectName }}_{{ .Version }}_Windows_{{ .Arch }}"
-
-# Configuração do checksum
+  - format: zip
+    # this name template makes the OS and Arch compatible with the results of uname.
+    name_template: >-
+      roztta-go-tf_{{ .Version }}_{{ .Os }}_{{ .Arch }}
+    # use zip for windows archives
+    format_overrides:
+      - goos: windows
+        format: zip
 checksum:
   name_template: "checksums.txt"
-
-# Configuração do snapshot
 snapshot:
   name_template: "{{ incpatch .Version }}-next"
-
-# Configuração do changelog
 changelog:
   sort: asc
   filters:
