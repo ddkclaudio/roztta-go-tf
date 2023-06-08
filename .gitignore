@@ -3,3 +3,6 @@ terraform-provider-*
 dist/
 [Bb]uild/
 [Bb]in/
+.terraform/
+.terraform.*
+*.tfstate
