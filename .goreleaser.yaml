@@ -15,10 +15,16 @@ builds:
       - darwin
 
 archives:
-  - format: tar.gz
-    name_template: "roztta-go-tf_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}.tar.gz"
-  - format: zip
-    name_template: "roztta-go-tf_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}.zip"
+  - id: darwin
+    format: tar.gz
+    name_template: "roztta-go-tf_Darwin_{{ .Arch }}.tar.gz"
+  - id: linux
+    format: tar.gz
+    name_template: "roztta-go-tf_Linux_{{ .Arch }}.tar.gz"
+  - id: windows
+    format: zip
+    name_template: "roztta-go-tf_Windows_{{ .Arch }}.zip"
+
 checksum:
   name_template: "checksums.txt"
 snapshot:
