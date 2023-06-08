@@ -1,10 +1,10 @@
-# This is an example .goreleaser.yml file with some sensible defaults.
-# Make sure to check the documentation at https://goreleaser.com
+# Este é um arquivo .goreleaser.yml de exemplo com alguns padrões sensíveis.
+# Não se esqueça de verificar a documentação em https://goreleaser.com
 before:
   hooks:
-    # You may remove this if you don't use go modules.
+    # Você pode remover isso se não usa go modules.
     - go mod tidy
-    # you may remove this if you don't need go generate
+    # Você pode remover isso se não precisa de go generate
     - go generate ./...
 builds:
   - env:
@@ -14,24 +14,40 @@ builds:
       - windows
       - darwin
 
+# Configuração dos arquivos a serem arquivados
 archives:
+  # Arquivo para Darwin (macOS)
   - id: darwin
-    format: tar.gz
-    name_template: "roztta-go-tf_Darwin_{{ .Arch }}"
+    format: zip
+    name_template: "{{ .ProjectName }}_{{ .Version }}_Darwin_{{ .Arch }}"
+
+  # Arquivo para Linux
   - id: linux
-    format: tar.gz
-    name_template: "roztta-go-tf_Linux_{{ .Arch }}"
+    format: zip
+    name_template: "{{ .ProjectName }}_{{ .Version }}_Linux_{{ .Arch }}"
+
+  # Arquivo para Windows
   - id: windows
     format: zip
-    name_template: "roztta-go-tf_Windows_{{ .Arch }}"
+    name_template: "{{ .ProjectName }}_{{ .Version }}_Windows_{{ .Arch }}"
 
+# Configuração do checksum
 checksum:
   name_template: "checksums.txt"
+
+# Configuração do snapshot
 snapshot:
   name_template: "{{ incpatch .Version }}-next"
+
+# Configuração do changelog
 changelog:
   sort: asc
   filters:
     exclude:
       - "^docs:"
       - "^test:"
+
+# Configuração do release
+release:
+  extra_files:
+    - glob: "!checksums.txt"
