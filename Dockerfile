@@ -1,22 +1,7 @@
 # Use the official Node.js image as the base
 FROM node:latest
 
-# Atualizar pacotes
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Instalar git, Node.js, npm e yarn
-RUN apt-get update && \
-    apt-get install -y git && \
-    curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt-get install -y nodejs && \
-    npm install -g yarn && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Instalar AWS CLI e Terraform
+# Install AWS CLI and Terraform
 RUN apt-get update && \
     apt-get install -y python3-pip unzip && \
     pip3 install awscli && \
@@ -28,9 +13,19 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Instalar a linguagem Go
-RUN wget -q https://golang.org/dl/go1.17.1.linux-amd64.tar.gz && \
-    tar -C /usr/local -xzf go1.17.1.linux-amd64.tar.gz && \
-    rm go1.17.1.linux-amd64.tar.gz
+RUN wget -q https://golang.org/dl/go1.18.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go1.18.linux-amd64.tar.gz && \
+    rm go1.18.linux-amd64.tar.gz
+
+# Instalar o make e build-essential
+RUN apt-get update && \
+    apt-get install -y build-essential make
+
+# Instalar git, Node.js, npm e Yarn
+RUN apt-get install -y git curl && \
+    curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g --force yarn
 
 # Configurar as variáveis de ambiente para o Go
 ENV PATH="/usr/local/go/bin:${PATH}"
