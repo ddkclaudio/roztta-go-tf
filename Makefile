@@ -3,7 +3,7 @@ HOSTNAME=roztta.com
 NAMESPACE=terraform
 NAME=roztta
 BINARY=terraform-provider-${NAME}
-VERSION=1.0
+VERSION=1.0.0
 OS_ARCH=linux_amd64
 
 default: install
@@ -35,3 +35,10 @@ test:
 
 testacc: 
 	TF_ACC=1 go test $(TEST) -v $(TESTARGS) -timeout 120m
+
+rebuild: clean install
+
+clean:
+	rm -rf ./build
+	rm -rf ./bin
+	rm -rf ~/.terraform.d/plugins/${HOSTNAME}/${NAMESPACE}/${NAME}/${VERSION}/${OS_ARCH}
