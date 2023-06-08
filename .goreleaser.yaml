@@ -17,13 +17,13 @@ builds:
 archives:
   - id: darwin
     format: tar.gz
-    name_template: "roztta-go-tf_Darwin_{{ .Arch }}.tar.gz"
+    name_template: "roztta-go-tf_Darwin_{{ .Arch }}"
   - id: linux
     format: tar.gz
-    name_template: "roztta-go-tf_Linux_{{ .Arch }}.tar.gz"
+    name_template: "roztta-go-tf_Linux_{{ .Arch }}"
   - id: windows
     format: zip
-    name_template: "roztta-go-tf_Windows_{{ .Arch }}.zip"
+    name_template: "roztta-go-tf_Windows_{{ .Arch }}"
 
 checksum:
   name_template: "checksums.txt"
