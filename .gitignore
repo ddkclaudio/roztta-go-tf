@@ -2,3 +2,4 @@
 terraform-provider-*
 dist/
 [Bb]uild/
+[Bb]in/
