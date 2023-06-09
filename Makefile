@@ -42,3 +42,4 @@ clean:
 	rm -rf ./build
 	rm -rf ./bin
 	rm -rf ~/.terraform.d/plugins/${HOSTNAME}/${NAMESPACE}/${NAME}/${VERSION}/${OS_ARCH}
+	rm -rf examples/.terraform/

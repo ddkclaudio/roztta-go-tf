@@ -1,16 +1,12 @@
-terraform {
-  required_providers {
-    roztta = {
-      source  = "roztta.com/terraform/roztta"
-      version = "1.0.0"
-    }
-  }
+provider "roztta" {
+  // Configurações do provedor, se houver
 }
 
 resource "roztta_hello_world" "example" {
-  message = "Hello, World!"
+  message = "Hello, Terraform!"
 }
 
-output "message" {
-  value = roztta_hello_world.example.message
+resource "roztta_gitlab_var" "example" {
+  name  = "MY_VARIABLE"
+  value = "my_value"
 }
