@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
@@ -28,6 +30,11 @@ func resourceGitlabVarCreate(d *schema.ResourceData, m interface{}) error {
 	name := d.Get("name").(string)
 	value := d.Get("value").(string)
 	// TODO: implement the logic to create a new GitLab variable
+
+	config := m.(*ProviderConfig)
+
+	fmt.Printf("Roztta Token: %s\n", config.RozttaToken)
+	fmt.Printf("Gitlab Token: %s\n", config.GitlabToken)
 
 	// Set the ID and data of the resource.
 	// Here we simply set the ID to the variable name and store the value.

@@ -31,5 +31,11 @@ func Provider() *schema.Provider {
 			"roztta_hello_world": resourceHelloWorld(),
 			"roztta_gitlab_var":  resourceGitlabVar(),
 		},
+		ConfigureFunc: func(d *schema.ResourceData) (interface{}, error) {
+			return &ProviderConfig{
+				RozttaToken: d.Get("roztta_token").(string),
+				GitlabToken: d.Get("gitlab_token").(string),
+			}, nil
+		},
 	}
 }
