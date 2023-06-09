@@ -82,11 +82,16 @@ This will output the reattach configuration to the output.
 
 ### Debugging
 
+instalation
+
+https://github.com/go-delve/delve/blob/master/Documentation/installation/README.md
+
 Before issuing commands like `plan`, `apply`, and `destroy` to your Terraform code, you need to export the `TF_REATTACH_PROVIDERS` environment variable to reattach the CLI session to the started debugging server. After starting the debugging server session using one method above, the value to this variable will be provided. Here is an example of how to do this.
 
 ```bash
 export TF_REATTACH_PROVIDERS='{"riferrei.com/terraform/sample":{"Protocol":"grpc","Pid":3382870,"Test":true,"Addr":{"Network":"unix","String":"/tmp/plugin713096927"}}}'
 ```
+
 
 # License
 

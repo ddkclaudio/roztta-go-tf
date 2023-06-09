@@ -32,6 +32,8 @@ ENV PATH="/usr/local/go/bin:${PATH}"
 ENV GOPATH="/go"
 ENV GOBIN="/go/bin"
 
+RUN go install github.com/go-delve/delve/cmd/dlv@latest
+
 # Criar o diretório de trabalho para os projetos Go
 RUN mkdir -p /app
 
