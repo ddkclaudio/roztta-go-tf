@@ -1,5 +1,5 @@
 provider "roztta" {
-  roztta_token    = "your_access_key_here"
+  roztta_token    = "0123456789"
   gitlab_token    = "your_gitlab_token_here"    // Opcional
   bitbucket_token = "your_bitbucket_token_here" // Opcional
 }
