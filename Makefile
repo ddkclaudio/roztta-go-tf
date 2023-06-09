@@ -43,3 +43,5 @@ clean:
 	rm -rf ./bin
 	rm -rf ~/.terraform.d/plugins/${HOSTNAME}/${NAMESPACE}/${NAME}/${VERSION}/${OS_ARCH}
 	rm -rf examples/.terraform/
+	rm -rf examples/terraform.tfstate
+	rm -rf examples/.terraform.lock.hcl

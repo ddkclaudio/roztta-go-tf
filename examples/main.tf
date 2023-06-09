@@ -1,5 +1,7 @@
 provider "roztta" {
-  // Configurações do provedor, se houver
+  roztta_token    = "your_access_key_here"
+  gitlab_token    = "your_gitlab_token_here"    // Opcional
+  bitbucket_token = "your_bitbucket_token_here" // Opcional
 }
 
 resource "roztta_hello_world" "example" {
