@@ -1,0 +1,400 @@
+{
+	"info": {
+		"_postman_id": "4638d079-8a35-40d9-899c-afe79580b45a",
+		"name": "Provider Roztta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3389299"
+	},
+	"item": [
+		{
+			"name": "Variables",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"nome\",\r\n    \"value\": \"claudio\",\r\n    \"secured\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BITBUCKET}}/repositories/roztta-main/solidworks-course/pipelines_config/variables",
+							"host": [
+								"{{BITBUCKET}}"
+							],
+							"path": [
+								"repositories",
+								"roztta-main",
+								"solidworks-course",
+								"pipelines_config",
+								"variables"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.bitbucket.org/2.0/repositories/roztta-main/solidworks-course/pipelines_config/variables?page=1&pagelen=10",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bitbucket",
+								"org"
+							],
+							"path": [
+								"2.0",
+								"repositories",
+								"roztta-main",
+								"solidworks-course",
+								"pipelines_config",
+								"variables"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pagelen",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.bitbucket.org/2.0/repositories/roztta-main/solidworks-course/pipelines_config/variables/:uuid",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bitbucket",
+								"org"
+							],
+							"path": [
+								"2.0",
+								"repositories",
+								"roztta-main",
+								"solidworks-course",
+								"pipelines_config",
+								"variables",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "{ef55aa9f-9197-454c-b03c-4b4631f2c32c}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"nome\",\r\n    \"value\": \"fernandes\",\r\n    \"secured\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bitbucket.org/2.0/repositories/roztta-main/solidworks-course/pipelines_config/variables/:uuid",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bitbucket",
+								"org"
+							],
+							"path": [
+								"2.0",
+								"repositories",
+								"roztta-main",
+								"solidworks-course",
+								"pipelines_config",
+								"variables",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "{ef55aa9f-9197-454c-b03c-4b4631f2c32c}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.bitbucket.org/2.0/repositories/roztta-main/solidworks-course/pipelines_config/variables/:uuid",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bitbucket",
+								"org"
+							],
+							"path": [
+								"2.0",
+								"repositories",
+								"roztta-main",
+								"solidworks-course",
+								"pipelines_config",
+								"variables",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "{86296484-fa33-41df-9d7d-2d2a4aa32f2f}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "[https://developer.atlassian.com/cloud/bitbucket/rest/api-group-pipelines/#api-workspaces-workspace-pipelines-config-variables-variable-uuid-put](https://developer.atlassian.com/cloud/bitbucket/rest/api-group-pipelines/#api-workspaces-workspace-pipelines-config-variables-variable-uuid-put)",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{ACCESS_TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Confluence",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"page\",\r\n  \"title\": \"Regras de Desenvolvimento\",\r\n  \"space\": {\r\n    \"key\": \"~71202042db6c7683474e2f9104b686c9415277\"\r\n  },\r\n  \"body\": {\r\n    \"storage\": {\r\n      \"value\": \"<h1>Regras de Desenvolvimento</h1><p>Aqui estão as regras de desenvolvimento:</p><ul><li>Regra 1</li><li>Regra 2</li><li>Regra 3</li></ul>\",\r\n      \"representation\": \"storage\"\r\n    }\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CONFLUENCE}}/wiki/rest/api/content",
+							"host": [
+								"{{CONFLUENCE}}"
+							],
+							"path": [
+								"wiki",
+								"rest",
+								"api",
+								"content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"version\": {\r\n        \"number\": 2\r\n    },\r\n    \"title\": \"Updated Page Title\",\r\n    \"type\": \"page\",\r\n    \"body\": {\r\n        \"storage\": {\r\n            \"value\": \"<h1>Updated content</h1>\",\r\n            \"representation\": \"storage\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{CONFLUENCE}}/wiki/rest/api/content/:id",
+							"host": [
+								"{{CONFLUENCE}}"
+							],
+							"path": [
+								"wiki",
+								"rest",
+								"api",
+								"content",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2162775"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{CONFLUENCE}}/wiki/rest/api/content/:id",
+							"host": [
+								"{{CONFLUENCE}}"
+							],
+							"path": [
+								"wiki",
+								"rest",
+								"api",
+								"content",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2162762"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Liist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{CONFLUENCE}}/wiki/rest/api/content?start=0&limit=25",
+							"host": [
+								"{{CONFLUENCE}}"
+							],
+							"path": [
+								"wiki",
+								"rest",
+								"api",
+								"content"
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{CONFLUENCE}}/wiki/rest/api/content/33069",
+							"host": [
+								"{{CONFLUENCE}}"
+							],
+							"path": [
+								"wiki",
+								"rest",
+								"api",
+								"content",
+								"33069"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "[https://registry.terraform.io/providers/DrFaust92/confluence/latest/docs](https://registry.terraform.io/providers/DrFaust92/confluence/latest/docs)\n\n[https://developer.atlassian.com/cloud/confluence/rest/v1/intro/#about](https://developer.atlassian.com/cloud/confluence/rest/v1/intro/#about)",
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "{{API_TOKEN}}",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "contact@roztta.com",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
