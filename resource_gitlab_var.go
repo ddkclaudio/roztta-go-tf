@@ -36,6 +36,26 @@ func resourceGitlabVarCreate(d *schema.ResourceData, m interface{}) error {
 	fmt.Printf("Roztta Token: %s\n", config.RozttaToken)
 	fmt.Printf("Gitlab Token: %s\n", config.GitlabToken)
 
+	// Define the URL
+	url := "https://cms.dev.mytaverse.com/auth/signIn"
+
+	// Define the payload
+	payload := map[string]string{
+		"email":    "claudio@mytaverse.com",
+		"password": "senha-segura",
+	}
+
+	// Instantiate the HTTP client
+	httpClient := NewHTTPClient()
+
+	// Call the Post method
+	response, err := httpClient.Post(url, payload)
+	if err != nil {
+		return fmt.Errorf("error making POST request: %s", err)
+	}
+
+	fmt.Println("Response: ", response)
+
 	// Set the ID and data of the resource.
 	// Here we simply set the ID to the variable name and store the value.
 	// In a real provider, you'd likely set the ID to a unique identifier returned by the GitLab API,
@@ -46,6 +66,12 @@ func resourceGitlabVarCreate(d *schema.ResourceData, m interface{}) error {
 }
 
 func resourceGitlabVarRead(d *schema.ResourceData, m interface{}) error {
+	name := d.Get("name").(string)
+	value := d.Get("value").(string)
+
+	fmt.Printf("Name: %s\n", name)
+	fmt.Printf("Value: %s\n", value)
+
 	// TODO: implement the logic to read a GitLab variable
 	return nil
 }

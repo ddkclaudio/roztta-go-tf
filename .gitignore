@@ -6,3 +6,4 @@ dist/
 .terraform/
 .terraform.*
 *.tfstate
+__debug_bin

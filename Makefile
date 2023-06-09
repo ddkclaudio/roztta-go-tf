@@ -45,3 +45,4 @@ clean:
 	rm -rf examples/.terraform/
 	rm -rf examples/terraform.tfstate
 	rm -rf examples/.terraform.lock.hcl
+	rm -rf examples/terraform.tfstate.backup
