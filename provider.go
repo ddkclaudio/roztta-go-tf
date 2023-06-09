@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
 )
@@ -45,24 +43,8 @@ func Provider() *schema.Provider {
 }
 
 func configureProvider(d *schema.ResourceData) (interface{}, error) {
-	rozttaToken := d.Get("roztta_token").(string)
-
-	if err := validateRozttaToken(rozttaToken); err != nil {
-		return nil, fmt.Errorf("roztta_token inválido: %s", err)
-	}
-
 	return &ProviderConfig{
-		RozttaToken: rozttaToken,
+		RozttaToken: d.Get("roztta_token").(string),
 		GitlabToken: d.Get("gitlab_token").(string),
 	}, nil
-}
-
-func validateRozttaToken(token string) error {
-	if len(token) < 10 || len(token) > 20 {
-		return fmt.Errorf("o token deve ter entre 10 e 20 caracteres")
-	}
-
-	// Outras verificações personalizadas podem ser adicionadas aqui
-
-	return nil
 }
