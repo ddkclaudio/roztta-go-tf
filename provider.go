@@ -31,6 +31,9 @@ func Provider() *schema.Provider {
 			"roztta_hello_world": resourceHelloWorld(),
 			"roztta_gitlab_var":  resourceGitlabVar(),
 		},
+		DataSourcesMap: map[string]*schema.Resource{
+			"roztta_gitlab_var": dataSourceGitlabVar(),
+		},
 		ConfigureFunc: func(d *schema.ResourceData) (interface{}, error) {
 			return &ProviderConfig{
 				RozttaToken: d.Get("roztta_token").(string),

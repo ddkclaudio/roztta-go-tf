@@ -10,5 +10,13 @@ resource "roztta_hello_world" "example" {
 
 resource "roztta_gitlab_var" "example" {
   name  = "MY_VARIABLE"
-  value = "my_value"
+  value = data.roztta_gitlab_var.my_var.value
+}
+
+data "roztta_gitlab_var" "my_var" {
+  name = "my_variable_name"
+}
+
+output "my_var_value" {
+  value = data.roztta_gitlab_var.my_var.value
 }

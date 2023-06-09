@@ -7,3 +7,4 @@ dist/
 .terraform.*
 *.tfstate
 __debug_bin
+examples/terraform.tfstate.backup
